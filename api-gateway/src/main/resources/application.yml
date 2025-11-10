@@ -1,0 +1,63 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: exchange-service
+          uri: lb://currency-exchange-service
+          predicates:
+            - Path=/exchange/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: exchangeCircuit
+                fallbackUri: forward:/fallback/exchange
+        - id: conversion-service
+          uri: lb://currency-conversion-service
+          predicates:
+            - Path=/convert/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: conversionCircuit
+                fallbackUri: forward:/fallback/conversion
+        - id: history-service
+          uri: lb://history-service
+          predicates:
+            - Path=/history/**
+      # Configuração de fallback para circuit breaker (rotas virtuais)
+      httpclient:
+        connect-timeout: 2000
+        response-timeout: 3s
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://keycloak:8080/realms/currency
+          jwk-set-uri: http://keycloak:8080/realms/currency/protocol/openid-connect/certs
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://naming-server:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    gateway:
+      enabled: true
+    circuitbreakers:
+      enabled: true

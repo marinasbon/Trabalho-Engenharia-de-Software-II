@@ -1,0 +1,8 @@
+com/example/conversion/CurrencyConversionServiceApplication.class
+com/example/conversion/model/ConversionResult.class
+com/example/conversion/config/FeignConfig.class
+com/example/conversion/model/ConversionEvent.class
+com/example/conversion/config/SecurityConfig.class
+com/example/conversion/service/ConversionService.class
+com/example/conversion/client/ExchangeClient.class
+com/example/conversion/controller/ConversionController.class

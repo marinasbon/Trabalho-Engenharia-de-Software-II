@@ -1,0 +1,26 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: currency-exchange-service
+  datasource:
+    url: jdbc:h2:mem:exchange;DB_CLOSE_DELAY=-1
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://keycloak:8080/realms/currency
+          jwk-set-uri: http://keycloak:8080/realms/currency/protocol/openid-connect/certs
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://naming-server:8761/eureka

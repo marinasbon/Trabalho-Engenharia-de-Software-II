@@ -1,0 +1,8 @@
+/Users/marinaschwerzbon/Downloads/microservices/currency-conversion-service/src/main/java/com/example/conversion/config/SecurityConfig.java
+/Users/marinaschwerzbon/Downloads/microservices/currency-conversion-service/src/main/java/com/example/conversion/service/ConversionService.java
+/Users/marinaschwerzbon/Downloads/microservices/currency-conversion-service/src/main/java/com/example/conversion/controller/ConversionController.java
+/Users/marinaschwerzbon/Downloads/microservices/currency-conversion-service/src/main/java/com/example/conversion/CurrencyConversionServiceApplication.java
+/Users/marinaschwerzbon/Downloads/microservices/currency-conversion-service/src/main/java/com/example/conversion/model/ConversionResult.java
+/Users/marinaschwerzbon/Downloads/microservices/currency-conversion-service/src/main/java/com/example/conversion/model/ConversionEvent.java
+/Users/marinaschwerzbon/Downloads/microservices/currency-conversion-service/src/main/java/com/example/conversion/config/FeignConfig.java
+/Users/marinaschwerzbon/Downloads/microservices/currency-conversion-service/src/main/java/com/example/conversion/client/ExchangeClient.java

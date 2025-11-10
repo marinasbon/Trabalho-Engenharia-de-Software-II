@@ -1,0 +1,18 @@
+package com.example.namingserver;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+
+/**
+ * Aplicação do naming-server.  Habilita o Eureka Server para
+ * registro e descoberta de serviços.
+ */
+@EnableEurekaServer
+@SpringBootApplication
+public class NamingServerApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(NamingServerApplication.class, args);
+    }
+}

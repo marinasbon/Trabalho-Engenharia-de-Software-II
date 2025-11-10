@@ -1,0 +1,9 @@
+/Users/marinaschwerzbon/Downloads/microservices/currency-exchange-service/src/main/java/com/example/exchange/dto/UpdateRateDTO.java
+/Users/marinaschwerzbon/Downloads/microservices/currency-exchange-service/src/main/java/com/example/exchange/service/ExchangeRateService.java
+/Users/marinaschwerzbon/Downloads/microservices/currency-exchange-service/src/main/java/com/example/exchange/exception/NotFoundException.java
+/Users/marinaschwerzbon/Downloads/microservices/currency-exchange-service/src/main/java/com/example/exchange/config/SecurityConfig.java
+/Users/marinaschwerzbon/Downloads/microservices/currency-exchange-service/src/main/java/com/example/exchange/model/ExchangeRate.java
+/Users/marinaschwerzbon/Downloads/microservices/currency-exchange-service/src/main/java/com/example/exchange/controller/ExchangeController.java
+/Users/marinaschwerzbon/Downloads/microservices/currency-exchange-service/src/main/java/com/example/exchange/dto/NewRateDTO.java
+/Users/marinaschwerzbon/Downloads/microservices/currency-exchange-service/src/main/java/com/example/exchange/CurrencyExchangeServiceApplication.java
+/Users/marinaschwerzbon/Downloads/microservices/currency-exchange-service/src/main/java/com/example/exchange/repository/ExchangeRateRepository.java

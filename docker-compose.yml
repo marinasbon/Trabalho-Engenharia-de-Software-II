@@ -1,0 +1,82 @@
+version: "3.9"
+services:
+  naming-server:
+    build: ./naming-server
+    image: naming-server
+    ports:
+      - "8761:8761"
+    networks:
+      - currency-net
+
+  api-gateway:
+    build: ./api-gateway
+    image: api-gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - naming-server
+      - keycloak
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://naming-server:8761/eureka
+    networks:
+      - currency-net
+
+  currency-exchange-service:
+    build: ./currency-exchange-service
+    image: currency-exchange
+    ports:
+      - "8000:8000"
+    depends_on:
+      - naming-server
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://naming-server:8761/eureka
+    networks:
+      - currency-net
+
+  currency-conversion-service:
+    build: ./currency-conversion-service
+    image: currency-conversion
+    ports:
+      - "8100:8100"
+    depends_on:
+      - naming-server
+      - rabbitmq
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://naming-server:8761/eureka
+    networks:
+      - currency-net
+
+  history-service:
+    build: ./history-service
+    image: history-service
+    ports:
+      - "8200:8200"
+    depends_on:
+      - rabbitmq
+    networks:
+      - currency-net
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672" # broker
+      - "15672:15672" # management UI
+    networks:
+      - currency-net
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:25.0.0
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+      - KC_HOSTNAME_URL=http://keycloak:8080
+      - KC_HOSTNAME_STRICT=false
+    command: start-dev --http-port=8080
+    ports:
+      - "9090:8080"
+    networks:
+      - currency-net
+
+networks:
+  currency-net:
+    driver: bridge

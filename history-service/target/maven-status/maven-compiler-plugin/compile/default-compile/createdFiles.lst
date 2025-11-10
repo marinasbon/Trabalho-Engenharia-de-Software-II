@@ -1,0 +1,6 @@
+com/example/history/repository/HistoryRepository.class
+com/example/history/service/HistoryService.class
+com/example/history/HistoryServiceApplication.class
+com/example/history/model/HistoryEntry.class
+com/example/history/model/ConversionEvent.class
+com/example/history/controller/HistoryController.class
