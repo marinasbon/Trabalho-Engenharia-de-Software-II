@@ -61,17 +61,7 @@ docker compose up -d --build
 
 Isso irá compilar as imagens, iniciar o Keycloak (exposto em `http://localhost:9090`), o Eureka (8761), o gateway (8080) e os serviços de câmbio (8000), conversão (8100) e histórico (8200), além do RabbitMQ (15672/5672).  Após a inicialização, configure o Keycloak criando um realm `currency`, as roles `USER` e `ADMIN`, os clientes (`gateway` e `microservices`) e os usuários conforme descrito no relatório.
 
-### 4 — Testar os serviços
-
-Use ferramentas como `curl` ou Insomnia/Postman para enviar requisições:
-
-- Obter um token via Keycloak (Recurso `/realms/currency/protocol/openid-connect/token` usando grant `password` ou via interface de login).
-- `GET http://localhost:8080/convert/USD/EUR/100` com header `Authorization: Bearer <token>` para calcular conversões.
-- `POST http://localhost:8080/exchange` para criar uma nova taxa (role ADMIN).
-- `PUT http://localhost:8080/exchange/{id}` para atualizar uma taxa (role ADMIN).
-- `GET http://localhost:8080/history` ou `/history/mine` para consultar histórico.
-
-### 5 — Encerrar o ambiente
+### 4 — Encerrar o ambiente
 
 Para parar e remover os contêineres execute:
 
